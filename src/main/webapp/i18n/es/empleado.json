@@ -1,0 +1,35 @@
+{
+    "nvempleadosApp": {
+        "empleado" : {
+            "home": {
+                "title": "Empleados",
+                "createLabel": "Crear nuevo Empleado",
+                "createOrEditLabel": "Crear o editar Empleado",
+                "search": "Search for Empleado"
+            },
+            "created": "Un nuevo Empleado ha sido creado con el identificador {{ param }}",
+            "updated": "Un Empleado ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Empleado ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Empleado {{ id }}?"
+            },
+            "detail": {
+                "title": "Empleado"
+            },
+            "identificationNumber": "Identification Number",
+            "firstNames": "First Names",
+            "lastNames": "Last Names",
+            "entryDate": "Entry Date",
+            "monthlySalary": "Monthly Salary",
+            "otherIncome": "Other Income",
+            "totalIncome": "Total Income",
+            "yearlyExpense": "Yearly Expense",
+            "monthlyExpense": "Monthly Expense",
+            "totalValue": "Total Value",
+            "assets": "Assets",
+            "liabilities": "Liabilities",
+            "wealth": "Wealth",
+            "relationship": "Relationship"
+        }
+    }
+}

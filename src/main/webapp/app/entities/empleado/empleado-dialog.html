@@ -1,0 +1,278 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEmpleadoLabel" data-translate="nvempleadosApp.empleado.home.createOrEditLabel">Create or edit a Empleado</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.empleado.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.empleado.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.identificationNumber" for="field_identificationNumber">Identification Number</label>
+            <input type="text" class="form-control" name="identificationNumber" id="field_identificationNumber"
+                    ng-model="vm.empleado.identificationNumber"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.identificationNumber.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.identificationNumber.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.identificationNumber.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.firstNames" for="field_firstNames">First Names</label>
+            <input type="text" class="form-control" name="firstNames" id="field_firstNames"
+                    ng-model="vm.empleado.firstNames"
+                    required ng-minlength="1" ng-maxlength="80" />
+            <div ng-show="editForm.firstNames.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.firstNames.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.firstNames.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.firstNames.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="80">
+                    This field cannot be longer than 80 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.lastNames" for="field_lastNames">Last Names</label>
+            <input type="text" class="form-control" name="lastNames" id="field_lastNames"
+                    ng-model="vm.empleado.lastNames"
+                    required ng-minlength="1" ng-maxlength="80" />
+            <div ng-show="editForm.lastNames.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.lastNames.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.lastNames.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.lastNames.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="80">
+                    This field cannot be longer than 80 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.entryDate" for="field_entryDate">Entry Date</label>
+                <div class="input-group">
+                    <input id="field_entryDate" type="text" class="form-control" name="entryDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.empleado.entryDate" is-open="vm.datePickerOpenStatus.entryDate"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('entryDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.entryDate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.entryDate.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.monthlySalary" for="field_monthlySalary">Monthly Salary</label>
+            <input type="number" class="form-control" name="monthlySalary" id="field_monthlySalary"
+                    ng-model="vm.empleado.monthlySalary"
+                    required min="0" />
+            <div ng-show="editForm.monthlySalary.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.monthlySalary.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.monthlySalary.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.monthlySalary.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.otherIncome" for="field_otherIncome">Other Income</label>
+            <input type="number" class="form-control" name="otherIncome" id="field_otherIncome"
+                    ng-model="vm.empleado.otherIncome"
+                    min="0" />
+            <div ng-show="editForm.otherIncome.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.otherIncome.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.otherIncome.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.totalIncome" for="field_totalIncome">Total Income</label>
+            <input type="number" class="form-control" name="totalIncome" id="field_totalIncome"
+                    ng-model="vm.empleado.totalIncome"
+                    required />
+            <div ng-show="editForm.totalIncome.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.totalIncome.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.totalIncome.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.yearlyExpense" for="field_yearlyExpense">Yearly Expense</label>
+            <input type="number" class="form-control" name="yearlyExpense" id="field_yearlyExpense"
+                    ng-model="vm.empleado.yearlyExpense"
+                    required min="0" />
+            <div ng-show="editForm.yearlyExpense.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.yearlyExpense.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.yearlyExpense.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.yearlyExpense.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.monthlyExpense" for="field_monthlyExpense">Monthly Expense</label>
+            <input type="number" class="form-control" name="monthlyExpense" id="field_monthlyExpense"
+                    ng-model="vm.empleado.monthlyExpense"
+                    required min="0" />
+            <div ng-show="editForm.monthlyExpense.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.monthlyExpense.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.monthlyExpense.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.monthlyExpense.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.totalValue" for="field_totalValue">Total Value</label>
+            <input type="number" class="form-control" name="totalValue" id="field_totalValue"
+                    ng-model="vm.empleado.totalValue"
+                    required />
+            <div ng-show="editForm.totalValue.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.totalValue.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.totalValue.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.assets" for="field_assets">Assets</label>
+            <input type="number" class="form-control" name="assets" id="field_assets"
+                    ng-model="vm.empleado.assets"
+                    required min="0" />
+            <div ng-show="editForm.assets.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.assets.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.assets.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.assets.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.liabilities" for="field_liabilities">Liabilities</label>
+            <input type="number" class="form-control" name="liabilities" id="field_liabilities"
+                    ng-model="vm.empleado.liabilities"
+                    required min="0" />
+            <div ng-show="editForm.liabilities.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.liabilities.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.liabilities.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.liabilities.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.wealth" for="field_wealth">Wealth</label>
+            <input type="number" class="form-control" name="wealth" id="field_wealth"
+                    ng-model="vm.empleado.wealth"
+                    required />
+            <div ng-show="editForm.wealth.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.wealth.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.wealth.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="nvempleadosApp.empleado.relationship" for="field_relationship">Relationship</label>
+            <input type="number" class="form-control" name="relationship" id="field_relationship"
+                    ng-model="vm.empleado.relationship"
+                    required />
+            <div ng-show="editForm.relationship.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.relationship.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.relationship.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

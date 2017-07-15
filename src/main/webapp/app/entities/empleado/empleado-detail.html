@@ -1,0 +1,75 @@
+
+<div>
+    <h2><span data-translate="nvempleadosApp.empleado.detail.title">Empleado</span> {{vm.empleado.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="nvempleadosApp.empleado.identificationNumber">Identification Number</span></dt>
+        <dd>
+            <span>{{vm.empleado.identificationNumber}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.firstNames">First Names</span></dt>
+        <dd>
+            <span>{{vm.empleado.firstNames}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.lastNames">Last Names</span></dt>
+        <dd>
+            <span>{{vm.empleado.lastNames}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.entryDate">Entry Date</span></dt>
+        <dd>
+            <span>{{vm.empleado.entryDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.monthlySalary">Monthly Salary</span></dt>
+        <dd>
+            <span>{{vm.empleado.monthlySalary}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.otherIncome">Other Income</span></dt>
+        <dd>
+            <span>{{vm.empleado.otherIncome}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.totalIncome">Total Income</span></dt>
+        <dd>
+            <span>{{vm.empleado.totalIncome}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.yearlyExpense">Yearly Expense</span></dt>
+        <dd>
+            <span>{{vm.empleado.yearlyExpense}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.monthlyExpense">Monthly Expense</span></dt>
+        <dd>
+            <span>{{vm.empleado.monthlyExpense}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.totalValue">Total Value</span></dt>
+        <dd>
+            <span>{{vm.empleado.totalValue}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.assets">Assets</span></dt>
+        <dd>
+            <span>{{vm.empleado.assets}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.liabilities">Liabilities</span></dt>
+        <dd>
+            <span>{{vm.empleado.liabilities}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.wealth">Wealth</span></dt>
+        <dd>
+            <span>{{vm.empleado.wealth}}</span>
+        </dd>
+        <dt><span data-translate="nvempleadosApp.empleado.relationship">Relationship</span></dt>
+        <dd>
+            <span>{{vm.empleado.relationship}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="empleado-detail.edit({id:vm.empleado.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
